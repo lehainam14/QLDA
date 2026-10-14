@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tìm việc làm sinh viên – JobStudent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages/home.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="JobStudent" width="32"
+          height="32">JobStudent</a>
+      <nav class="nav" aria-label="Menu chính">
+        <a href="index.html" aria-current="page">Tìm việc làm</a>
+        <a href="index.html#nearby">Việc làm quanh đây</a>
+        <a href="index.html#cv">Mẫu CV</a>
+        <a href="index.html#pricing">Bảng giá (Dành cho NTD)</a>
+      </nav>
+      <div class="header__actions">
+        <a class="btn btn--outline btn--sm" href="login.html">Đăng nhập</a>
+        <a class="btn btn--primary btn--sm" href="register.html">Đăng ký</a>
+      </div>
+    </div>
+  </header>
+  <main class="page">
+    <div class="searchbar" role="search">
+      <input class="input" type="search" placeholder="Tên công việc, kỹ năng, tên công ty...">
+      <select class="input" style="max-width:220px">
+        <option>Tất cả Quận/Huyện</option>
+        <option>Quận 1</option>
+        <option>Quận 10</option>
+        <option>TP. Thủ Đức</option>
+      </select>
+      <button class="btn btn--primary" type="button"><span class="ms">search</span>Tìm việc</button>
+    </div>
+    <div class="split">
+      <aside class="card filter" aria-label="Bộ lọc nâng cao">
+        <h2 class="card__title">Bộ lọc</h2>
+        <h3>Mức lương</h3><label><input type="radio" name="w" checked>Theo giờ</label><label><input type="radio"
+            name="w">Theo tháng</label>
+        <h3>Khung giờ làm việc</h3><label><input type="checkbox">Ca sáng</label><label><input type="checkbox">Ca
+          gãy</label><label><input type="checkbox">Cuối tuần</label>
+        <h3>Lĩnh vực</h3><label><input type="checkbox">F&amp;B</label><label><input type="checkbox">Gia
+          sư</label><label><input type="checkbox">Kho vận</label>
+      </aside>
+      <div class="stack">
+        <aside class="safety" role="note"><span class="ms fill">shield</span>
+          <p><strong>Không đóng bất kỳ khoản phí đặt cọc nào khi nhận việc.</strong> Báo cáo ngay nếu gặp tin tuyển dụng
+            thu phí.</p>
+        </aside>
+        <div class="cards">
+          <article class="jobcard">
+            <div class="jobcard__head">
+              <div class="logo">H</div>
+              <p class="jobcard__co">Highlands Coffee<span class="ms fill">verified</span></p><button class="iconbtn"
+                type="button" aria-label="Lưu tin"><span class="ms">bookmark</span></button>
+            </div>
+            <h3 class="jobcard__title">Nhân viên Pha chế / Phục vụ Ca Gãy</h3>
+            <div class="chips"><span class="chip chip--wage">30.000đ - 38.000đ/giờ</span><span
+                class="chip chip--shift">Ca gãy</span><span class="chip"><span class="ms">pin_drop</span>Quận 1</span>
+            </div>
+            <div class="jobcard__foot"><span>Đăng 2 giờ trước</span>
+              <div><a class="btn btn--outline btn--sm" href="job-detail.html">Xem chi tiết</a><a
+                  class="btn btn--primary btn--sm" href="job-detail.html#apply">Ứng tuyển</a></div>
+            </div>
+          </article>
+          <article class="jobcard">
+            <div class="jobcard__head">
+              <div class="logo">T</div>
+              <p class="jobcard__co">The Coffee House<span class="ms fill">verified</span></p><button class="iconbtn"
+                type="button" aria-label="Lưu tin"><span class="ms">bookmark</span></button>
+            </div>
+            <h3 class="jobcard__title">Thu ngân &amp; Phục vụ Part-time</h3>
+            <div class="chips"><span class="chip chip--wage">28.000đ - 35.000đ/giờ</span><span
+                class="chip chip--shift">Part-time</span><span class="chip"><span class="ms">pin_drop</span>Quận
+                10</span></div>
+            <div class="jobcard__foot"><span>Đăng 4 giờ trước</span>
+              <div><a class="btn btn--outline btn--sm" href="job-detail.html">Xem chi tiết</a><a
+                  class="btn btn--primary btn--sm" href="job-detail.html#apply">Ứng tuyển</a></div>
+            </div>
+          </article>
+          <article class="jobcard">
+            <div class="jobcard__head">
+              <div class="logo">C</div>
+              <p class="jobcard__co">CLB Gia sư Sư phạm<span class="ms fill">verified</span></p><button class="iconbtn"
+                type="button" aria-label="Lưu tin"><span class="ms">bookmark</span></button>
+            </div>
+            <h3 class="jobcard__title">Gia sư Toán &amp; Tiếng Anh lớp 6-8</h3>
+            <div class="chips"><span class="chip chip--wage">120.000đ - 150.000đ/buổi</span><span
+                class="chip chip--shift">3 buổi/tuần</span><span class="chip"><span class="ms">pin_drop</span>Quận
+                3</span></div>
+            <div class="jobcard__foot"><span>Đăng 1 ngày trước</span>
+              <div><a class="btn btn--outline btn--sm" href="job-detail.html">Xem chi tiết</a><a
+                  class="btn btn--primary btn--sm" href="job-detail.html#apply">Ứng tuyển</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer__inner"><span>© 2026 JobStudent – Minh bạch &amp; An toàn</span><span>Không đóng cọc • Không giữ
+        CCCD gốc • Hotline 1900 6868</span></div>
+  </footer>
+  <!-- DEMO NAVIGATOR -->
+  <details class="demo-bar">
+    <summary><span class="ms">explore</span>Demo</summary>
+    <div class="demo-bar__content">
+      <div class="demo-bar__group">
+        <h4>Khách</h4>
+        <a href="index.html">Trang chủ & Tìm việc</a>
+        <a href="job-detail.html">Chi tiết việc & Ứng tuyển</a>
+        <a href="login.html">Đăng nhập</a>
+        <a href="register.html">Đăng ký tài khoản</a>
+      </div>
+      <div class="demo-bar__group">
+        <h4>Sinh viên</h4>
+        <a href="student/profile.html">Hồ sơ cá nhân</a>
+        <a href="student/applications.html">Theo dõi ứng tuyển</a>
+        <a href="student/saved-jobs.html">Việc làm đã lưu</a>
+      </div>
+      <div class="demo-bar__group">
+        <h4>Nhà tuyển dụng</h4>
+        <a href="employer/dashboard.html">Bảng điều khiển</a>
+        <a href="employer/job-create.html">Đăng tin tuyển dụng</a>
+        <a href="employer/applicants.html">Quản lý ứng viên</a>
+      </div>
+      <div class="demo-bar__group">
+        <h4>Admin</h4>
+        <a href="admin/employers-review.html">Duyệt NTD</a>
+        <a href="admin/jobs-review.html">Duyệt tin đăng</a>
+        <a href="admin/reports.html">Xử lý báo cáo xấu</a>
+        <a href="admin/categories.html">Quản lý danh mục</a>
+      </div>
+    </div>
+  </details>
+</body>
+
+</html>

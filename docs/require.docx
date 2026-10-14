@@ -1,0 +1,113 @@
+**Đặc tả Dữ liệu Giao diện (Căn cứ cho Frontend thiết kế UI/UX) **
+
+**Danh sách Tác nhân (Actors) trong hệ thống**
+
+- **Sinh viên (Người tìm việc):** Đăng ký/Đăng nhập, tạo hồ sơ cá nhân, tìm kiếm công việc, nộp đơn ứng tuyển, theo dõi trạng thái hồ sơ.
+
+- **Nhà tuyển dụng (NTD):** Đăng ký tài khoản doanh nghiệp (cần xác thực), tạo và quản lý tin tuyển dụng, xem danh sách sinh viên ứng tuyển, cập nhật trạng thái phỏng vấn.
+
+- **Quản trị viên (Admin):** Phê duyệt tài khoản NTD, phê duyệt nội dung tin tuyển dụng trước khi hiển thị, quản lý danh mục (ngành nghề, địa điểm).
+
+ 
+
+| **Tên Màn hình** | **Tác nhân** | **Các trường thông tin (Data Fields) cần vẽ** | **Các nút bấm (Call to Action)** |
+| --- | --- | --- | --- |
+| **Đăng ký Tài khoản NTD** | NTD | Tên công ty, Email, Mật khẩu, Số điện thoại người liên hệ, Mã số thuế, Tải lên Giấy phép kinh doanh (Ảnh/PDF). | "Đăng ký", "Chuyển sang Đăng nhập" |
+| **Tạo Hồ sơ Cá nhân (Profile)** | Sinh viên | Họ tên, Ngày sinh, Ảnh đại diện, Tên Trường ĐH, Kỹ năng nổi bật, Kinh nghiệm làm việc, Nút tải lên CV đính kèm. | "Lưu hồ sơ", "Cập nhật" |
+| **Form Tạo Tin Tuyển dụng** | NTD | Tiêu đề công việc, Loại hình (Part-time/Ca gãy), Mức lương (Từ - Đến), Địa chỉ làm việc, Mô tả công việc, Yêu cầu ứng viên, Hạn chót nhận hồ sơ. | "Lưu nháp", "Gửi chờ duyệt" |
+| **Thẻ Công việc (Job Card)** | Sinh viên | (Hiển thị trên Trang chủ): Logo công ty, Tiêu đề việc làm, Mức lương, Khu vực (Quận/Huyện), Thời gian cập nhật. | "Xem chi tiết", "Lưu tin", "Ứng tuyển" |
+| **Chi tiết Hồ sơ Ứng viên** | NTD | (Khi NTD xem danh sách nộp đơn): Tên sinh viên, Thời gian nộp, Link tải CV, Thư giới thiệu (Cover letter). | "Đánh dấu Phù hợp", "Từ chối" |
+
+ 
+
+ 
+
+**Đặc tả Luồng Trạng thái Dữ liệu (Căn cứ cho Backend thiết kế CSDL)** 2 bạn Backend (BE) cần các quy tắc kinh doanh (Business Rules) này để thiết kế các bảng trong cơ sở dữ liệu và viết API xử lý logic:
+
+- **Vòng đời của một Tin tuyển dụng:**
+
+- **Draft (Nháp):** NTD đang viết dở, chưa công khai.
+
+- **Pending (Chờ duyệt):** NTD đã ấn gửi. Lúc này tin chưa hiện lên web sinh viên. Admin sẽ thấy tin này trong trang quản trị.
+
+- **Published (Đang hiển thị):** Admin ấn "Duyệt". Tin xuất hiện trên trang chủ tìm kiếm.
+
+- **Rejected (Bị từ chối):** Admin phát hiện tin đa cấp/lừa đảo, ấn "Từ chối" kèm lý do. Tin trả về cho NTD sửa.
+
+- **Expired (Hết hạn):** Qua ngày "Hạn chót nhận hồ sơ", hệ thống tự động ẩn tin.
+
+- **Vòng đời của một Đơn ứng tuyển (Application):**
+
+- **Submitted (Đã nộp):** Sinh viên vừa ấn nút ứng tuyển.
+
+- **Viewed (Đã xem):** NTD bấm vào xem CV (hệ thống báo cho sinh viên biết NTD đã đọc).
+
+- **Shortlisted (Phù hợp):** NTD chọn để gọi phỏng vấn.
+
+- **Rejected (Từ chối):** NTD loại hồ sơ
+
+**II. Danh sách Yêu cầu Chi tiết (Dự án Web Việc làm Sinh viên)**
+
+**1. Thanh Điều hướng (Header ****&**** Navigation)**
+
+- **FR-NAV-01: Quản lý Tài khoản (Account Access)**
+
+- **Mô tả:** Hệ thống cung cấp nút Đăng nhập/Đăng ký góc phải màn hình, hỗ trợ đăng nhập nhanh bằng Google/Facebook (SSO).
+
+- **Mô tả:** Sau khi đăng nhập thành công, thanh điều hướng tự động thay đổi menu dựa trên phân quyền (Sinh viên thấy menu "Hồ sơ của tôi", NTD thấy menu "Quản lý tuyển dụng").
+
+- **FR-NAV-02: Truy cập Menu Chính**
+
+- **Mô tả:** Hệ thống hiển thị các liên kết điều hướng nhanh: "Tìm việc làm", "Việc làm quanh đây", "Mẫu CV", và "Bảng giá (Dành cho NTD)".
+
+**2. Khu vực Tìm kiếm ****&**** Lọc (Search ****&**** Filter Module)**
+
+- **FR-SEARCH-01: Thanh Tìm kiếm Đa chiều (Omni-search Bar)**
+
+- **Mô tả:** Hệ thống cung cấp ô nhập liệu cho phép Sinh viên nhập từ khóa (Tên công việc, Kỹ năng, Tên công ty) kết hợp với Dropdown chọn Địa điểm (Quận/Huyện/Thành phố).
+
+- **FR-SEARCH-02: Bộ Lọc Nâng cao (Advanced Filters)**
+
+- **Mô tả:** Hệ thống cung cấp bộ lọc động ở cột bên trái hoặc ngay dưới thanh tìm kiếm, bao gồm các tiêu chí: Mức lương (theo giờ/theo tháng), Khung giờ làm việc (Ca sáng/Ca gãy/Cuối tuần), Lĩnh vực (F&B, Gia sư, Kho vận).
+
+- **Mô tả:** Kết quả tìm kiếm (danh sách công việc) tự động tải lại ngay khi người dùng thay đổi tiêu chí lọc mà không cần tải lại toàn bộ trang (sử dụng AJAX).
+
+**3. Danh sách ****&**** Chi tiết Công việc (Job Listings ****&**** Details)**
+
+- **FR-JOB-01: Thẻ Công việc (Job Card)**
+
+- **Mô tả:** Hệ thống hiển thị mỗi công việc dưới dạng thẻ chứa thông tin tóm tắt: Logo công ty, Tiêu đề việc làm, Mức lương, Khoảng cách địa lý, và Thời gian đăng tin.
+
+- **Mô tả:** Cung cấp biểu tượng trái tim (hoặc dấu trang) trên mỗi thẻ để Sinh viên lưu nhanh công việc vào danh sách "Việc làm đã lưu".
+
+- **FR-JOB-02: Trang Chi tiết Công việc (Job Detail Page)**
+
+- **Mô tả:** Khi click vào Thẻ công việc, hệ thống mở trang chi tiết hiển thị: Mô tả công việc, Yêu cầu ứng viên, Chế độ phúc lợi, Hạn nộp hồ sơ và Bản đồ (Google Maps) chỉ đường đến nơi làm việc.
+
+- **Mô tả:** Hệ thống hiển thị cảnh báo lừa đảo tự động (Ví dụ: "Tuyệt đối không đóng phí trước khi đi làm") kèm nút "Báo cáo tin xấu" (Report) cho quản trị viên.
+
+**4. Khu vực Ứng tuyển ****&**** Quản lý Hồ sơ (Sinh viên)**
+
+- **FR-APP-01: Cửa sổ Ứng tuyển Nhanh (Quick Apply Modal)**
+
+- **Mô tả:** Khi bấm "Ứng tuyển ngay", hệ thống hiển thị cửa sổ cho phép Sinh viên chọn Hồ sơ (Profile) đã tạo trên web hoặc tải lên tệp CV mới (PDF/Word).
+
+- **Mô tả:** Cho phép người dùng nhập nội dung Thư giới thiệu (Cover letter) trực tiếp vào ô văn bản trước khi nhấn "Gửi hồ sơ".
+
+- **FR-APP-02: Bảng theo dõi Trạng thái Ứng tuyển**
+
+- **Mô tả:** Trong giao diện quản lý cá nhân, Sinh viên xem được danh sách các công việc đã nộp kèm trạng thái cập nhật theo thời gian thực: *Đã gửi -**>** NTD Đã xem -**>** Phù hợp / Từ chối*.
+
+**5. Bảng Điều khiển Nhà Tuyển Dụng (Employer Dashboard)**
+
+- **FR-EMP-01: Form Đăng tin Tuyển dụng**
+
+- **Mô tả:** Hệ thống cung cấp biểu mẫu để NTD điền thông tin tạo tin mới với các trường dữ liệu bắt buộc được đánh dấu sao (*).
+
+- **Mô tả:** Sau khi bấm "Đăng tin", hệ thống chuyển trạng thái tin sang "Chờ duyệt" và gửi thông báo chờ xử lý cho Admin.
+
+- **FR-EMP-02: Quản lý Ứng viên (Mini ATS)**
+
+- **Mô tả:** Giao diện cho phép NTD xem danh sách CV ứng tuyển vào từng chiến dịch, xem trước (Preview) file PDF hồ sơ trực tiếp trên trình duyệt mà không cần tải về.
+
+- **Mô tả:** NTD có thể sử dụng các nút thao tác nhanh để đánh dấu hồ sơ (Duyệt / Loại) và hệ thống tự động gửi email thông báo kết quả tương ứng cho Sinh viên.

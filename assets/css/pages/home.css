@@ -1,0 +1,41 @@
+.searchbar {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--r-2xl);
+    box-shadow: var(--shadow);
+    margin-bottom: 24px
+}
+
+.searchbar .input {
+    border: 0;
+    background: var(--bg)
+}
+
+.searchbar .input:first-child {
+    flex: 1
+}
+
+.filter h3 {
+    font: 700 14px/18px var(--font);
+    margin: 16px 0 8px
+}
+
+.filter label {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 6px 0
+}
+
+.filter input {
+    accent-color: var(--primary)
+}
+
+@media (max-width:640px) {
+    .searchbar {
+        flex-direction: column
+    }
+}

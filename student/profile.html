@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hồ sơ của tôi – JobStudent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages/student.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a class="brand" href="../index.html"><img src="../assets/img/logo.svg" alt="JobStudent" width="32"
+          height="32">JobStudent</a>
+      <nav class="nav" aria-label="Menu chính">
+        <a href="../index.html">Tìm việc làm</a>
+        <a href="../student/profile.html" aria-current="page">Hồ sơ của tôi</a>
+        <a href="../student/applications.html">Ứng tuyển của tôi</a>
+        <a href="../student/saved-jobs.html">Việc làm đã lưu</a>
+      </nav>
+      <div class="header__actions">
+        <span class="chip"><span class="ms">person</span>Sinh viên</span>
+        <a class="btn btn--outline btn--sm" href="../login.html">Đăng xuất</a>
+      </div>
+    </div>
+  </header>
+  <main class="page">
+    <nav class="crumbs">Trang chủ<span class="ms">chevron_right</span>Hồ sơ của tôi</nav>
+    <h1 class="page-title">Hồ sơ cá nhân</h1>
+    <div class="split">
+      <aside class="card side-card">
+        <div class="avatar"><span class="ms">person</span></div>
+        <a class="btn btn--outline btn--sm" href="#"><span class="ms">photo_camera</span>Đổi ảnh đại diện</a>
+        <p class="apply__sub" style="margin-top:16px">Độ hoàn thiện hồ sơ: 85%</p>
+        <div class="progress"><i style="width:85%"></i></div>
+      </aside>
+      <form class="stack" action="#" method="post" enctype="multipart/form-data">
+        <section class="card ">
+          <h2 class="card__title">Thông tin cơ bản</h2>
+          <div class="form-grid">
+            <div class="field "><label>Họ tên <span class="req">*</span></label><input class="input" type="text"
+                name="fullname" placeholder=""></div>
+            <div class="field "><label>Ngày sinh <span class="req">*</span></label><input class="input" type="date"
+                name="birthday" placeholder=""></div>
+          </div>
+        </section>
+        <section class="card ">
+          <h2 class="card__title">Học vấn</h2>
+          <div class="form-grid">
+            <div class="field full"><label>Tên Trường ĐH <span class="req">*</span></label><input class="input"
+                type="text" name="university" placeholder=""></div>
+          </div>
+        </section>
+        <section class="card ">
+          <h2 class="card__title">Kỹ năng &amp; kinh nghiệm</h2>
+          <div class="field "><label>Kỹ năng nổi bật <span class="req">*</span></label><input class="input" type="text"
+              name="skills" placeholder="Giao tiếp, Pha chế, POS..."></div>
+          <div class="field "><label>Kinh nghiệm làm việc <span class="req">*</span></label><textarea class="input"
+              rows="4" name="experience" placeholder=""></textarea></div>
+          <div class="field "><label>CV đính kèm</label><label class="file"><span class="ms">upload_file</span>
+              <div><b>Chọn tệp từ máy</b><br><small>PDF, DOC, DOCX, PNG, JPG</small></div><input type="file"
+                name="cv_file">
+            </label></div>
+        </section>
+        <div class="sticky-bar"><button class="btn btn--outline" type="button">Lưu hồ sơ</button><button
+            class="btn btn--primary" type="submit"><span class="ms">check_circle</span>Cập nhật</button></div>
+      </form>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer__inner"><span>© 2026 JobStudent – Minh bạch &amp; An toàn</span><span>Không đóng cọc • Không giữ
+        CCCD gốc • Hotline 1900 6868</span></div>
+  </footer>
+  <!-- DEMO NAVIGATOR -->
+  <details class="demo-bar">
+    <summary><span class="ms">explore</span>Demo</summary>
+    <div class="demo-bar__content">
+      <div class="demo-bar__group">
+        <h4>Khách</h4>
+        <a href="../index.html">Trang chủ & Tìm việc</a>
+        <a href="../job-detail.html">Chi tiết việc & Ứng tuyển</a>
+        <a href="../login.html">Đăng nhập</a>
+        <a href="../register.html">Đăng ký tài khoản</a>
+      </div>
+      <div class="demo-bar__group">
+        <h4>Sinh viên</h4>
+        <a href="../student/profile.html">Hồ sơ cá nhân</a>
+        <a href="../student/applications.html">Theo dõi ứng tuyển</a>
+        <a href="../student/saved-jobs.html">Việc làm đã lưu</a>
+      </div>
+      <div class="demo-bar__group">
+        <h4>Nhà tuyển dụng</h4>
+        <a href="../employer/dashboard.html">Bảng điều khiển</a>
+        <a href="../employer/job-create.html">Đăng tin tuyển dụng</a>
+        <a href="../employer/applicants.html">Quản lý ứng viên</a>
+      </div>
+      <div class="demo-bar__group">
+        <h4>Admin</h4>
+        <a href="../admin/employers-review.html">Duyệt NTD</a>
+        <a href="../admin/jobs-review.html">Duyệt tin đăng</a>
+        <a href="../admin/reports.html">Xử lý báo cáo xấu</a>
+        <a href="../admin/categories.html">Quản lý danh mục</a>
+      </div>
+    </div>
+  </details>
+</body>
+
+</html>

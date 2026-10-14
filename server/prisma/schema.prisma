@@ -1,0 +1,156 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id              String           @id @default(uuid())
+  email           String           @unique
+  password        String
+  role            String           @default("STUDENT") // STUDENT, EMPLOYER, ADMIN
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  studentProfile  StudentProfile?
+  employerProfile EmployerProfile?
+  reports         JobReport[]
+}
+
+model StudentProfile {
+  id                String        @id @default(uuid())
+  userId            String        @unique
+  user              User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fullName          String
+  birthday          String?
+  university        String?
+  skills            String?
+  experience        String?
+  cvUrl             String?
+  avatarUrl         String?
+  completionPercent Int           @default(70)
+  applications      Application[]
+  savedJobs         SavedJob[]
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+}
+
+model EmployerProfile {
+  id                 String   @id @default(uuid())
+  userId             String   @unique
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  companyName        String
+  phone              String
+  taxId              String
+  licenseFileUrl     String?
+  isVerified         Boolean  @default(false)
+  verificationStatus String   @default("PENDING") // PENDING, VERIFIED, REJECTED
+  rejectReason       String?
+  jobs               Job[]
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  jobs      Job[]
+  createdAt DateTime @default(now())
+}
+
+model Location {
+  id           String     @id @default(uuid())
+  name         String
+  type         String     @default("DISTRICT") // "CITY" (Tỉnh/Thành phố) hoặc "DISTRICT" (Quận/Huyện)
+  parentId     String?
+  parent       Location?  @relation("LocationHierarchy", fields: [parentId], references: [id], onDelete: Cascade)
+  children     Location[] @relation("LocationHierarchy")
+  provinceJobs Job[]      @relation("JobProvince")
+  districtJobs Job[]      @relation("JobDistrict")
+  createdAt    DateTime   @default(now())
+
+  @@unique([name, parentId])
+}
+
+model Job {
+  id           String          @id @default(uuid())
+  employerId   String
+  employer     EmployerProfile @relation(fields: [employerId], references: [id], onDelete: Cascade)
+  title        String
+  jobType      String          @default("Part-time") // Part-time, Ca gãy
+  categoryId   String?
+  category     Category?       @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  provinceId   String?
+  province     Location?       @relation("JobProvince", fields: [provinceId], references: [id], onDelete: SetNull)
+  districtId   String?
+  district     Location?       @relation("JobDistrict", fields: [districtId], references: [id], onDelete: SetNull)
+  address      String
+  wageMin      Float
+  wageMax      Float
+  wageType     String          @default("HOURLY") // HOURLY, MONTHLY
+  shiftTypes   String?         // "Ca sáng, Ca gãy, Cuối tuần"
+  deadline     DateTime
+  description  String
+  requirements String
+  benefits     String?
+  mapUrl       String?
+  status       String          @default("PENDING") // DRAFT, PENDING, PUBLISHED, REJECTED, EXPIRED
+  rejectReason String?
+  applications Application[]
+  savedJobs    SavedJob[]
+  reports      JobReport[]
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+}
+
+model Application {
+  id              String                     @id @default(uuid())
+  jobId           String
+  job             Job                        @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  studentId       String
+  student         StudentProfile             @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  resumeType      String                     @default("PROFILE") // PROFILE, UPLOAD
+  resumeFileUrl   String?
+  coverLetter     String?
+  status          String                     @default("SUBMITTED") // SUBMITTED, VIEWED, SHORTLISTED, REJECTED
+  statusHistories ApplicationStatusHistory[]
+  createdAt       DateTime                   @default(now())
+  updatedAt       DateTime                   @updatedAt
+
+  @@unique([jobId, studentId])
+}
+
+model ApplicationStatusHistory {
+  id            String      @id @default(uuid())
+  applicationId String
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  status        String
+  note          String?
+  changedAt     DateTime    @default(now())
+}
+
+model SavedJob {
+  id        String         @id @default(uuid())
+  studentId String
+  student   StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  jobId     String
+  job       Job            @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  createdAt DateTime       @default(now())
+
+  @@unique([studentId, jobId])
+}
+
+model JobReport {
+  id            String   @id @default(uuid())
+  jobId         String
+  job           Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  reporterId    String?
+  reporter      User?    @relation(fields: [reporterId], references: [id], onDelete: SetNull)
+  reporterEmail String?
+  reason        String
+  description   String?
+  status        String   @default("PENDING") // PENDING, RESOLVED, DISMISSED
+  createdAt     DateTime @default(now())
+}

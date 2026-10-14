@@ -1,0 +1,32 @@
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--r-2xl);
+    background: var(--ok-bg);
+    color: var(--primary);
+    display: grid;
+    place-items: center;
+    margin: 0 auto 12px
+}
+
+.avatar .ms {
+    font-size: 48px
+}
+
+.side-card {
+    text-align: center
+}
+
+.progress {
+    height: 10px;
+    background: #E2E8F0;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 8px
+}
+
+.progress i {
+    display: block;
+    height: 100%;
+    background: var(--primary)
+}

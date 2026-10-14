@@ -1,0 +1,28 @@
+/* Token thiết kế */
+:root {
+  --primary: #0D9488;
+  --primary-d: #0F766E;
+  --secondary: #2563EB;
+  --amber: #F59E0B;
+  --ink: #0F172A;
+  --muted: #64748B;
+  --soft: #94A3B8;
+  --bg: #F8FAFC;
+  --card: #fff;
+  --line: #E2E8F0;
+  --ok: #059669;
+  --ok-bg: #ECFDF5;
+  --ok-line: #A7F3D0;
+  --warn: #D97706;
+  --warn-bg: #FFFBEB;
+  --warn-line: #FCD34D;
+  --info: #1D4ED8;
+  --info-bg: #EFF6FF;
+  --danger: #DC2626;
+  --danger-bg: #FEF2F2;
+  --r-md: 8px;
+  --r-xl: 16px;
+  --r-2xl: 24px;
+  --shadow: 0 2px 8px -2px rgba(13, 148, 136, .04), 0 4px 12px -1px rgba(15, 23, 42, .05);
+  --font: "Plus Jakarta Sans", system-ui, sans-serif;
+}

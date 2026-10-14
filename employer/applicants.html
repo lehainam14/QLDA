@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ứng viên – JobStudent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages/employer.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a class="brand" href="../index.html"><img src="../assets/img/logo.svg" alt="JobStudent" width="32"
+          height="32">JobStudent</a>
+      <nav class="nav" aria-label="Menu chính">
+        <a href="../employer/dashboard.html">Quản lý tuyển dụng</a>
+        <a href="../employer/job-create.html">Đăng tin</a>
+        <a href="../employer/applicants.html" aria-current="page">Ứng viên</a>
+      </nav>
+      <div class="header__actions">
+        <span class="chip"><span class="ms">person</span>Nhà tuyển dụng</span>
+        <a class="btn btn--outline btn--sm" href="../login.html">Đăng xuất</a>
+      </div>
+    </div>
+  </header>
+  <main class="page">
+    <nav class="crumbs">Chiến dịch tuyển dụng<span class="ms">chevron_right</span>Nhân viên Pha chế Ca Gãy</nav>
+    <h1 class="page-title">Ứng viên (18 hồ sơ)</h1>
+    <div class="split">
+      <aside>
+        <div class="applicant is-active">
+          <div class="logo" style="width:40px;height:40px;font-size:14px">MA</div>
+          <div><b>Lê Nguyễn Minh Anh</b><small>ĐH KHXH&amp;NV</small></div><span class="badge badge--warn">Đã xem</span>
+        </div>
+        <div class="applicant">
+          <div class="logo" style="width:40px;height:40px;font-size:14px">QB</div>
+          <div><b>Trần Quốc Bảo</b><small>ĐH SPKT</small></div><span class="badge badge--info">Đã nộp</span>
+        </div>
+        <div class="applicant">
+          <div class="logo" style="width:40px;height:40px;font-size:14px">TT</div>
+          <div><b>Nguyễn Thu Trang</b><small>UEH</small></div><span class="badge badge--ok">Phù hợp</span>
+        </div>
+      </aside>
+      <div class="stack">
+        <section class="card ">
+          <h2 class="card__title">Lê Nguyễn Minh Anh</h2>
+          <div class="detail-meta"><span>Thời gian nộp: 10:30 hôm nay</span><a href="#"
+              style="color:var(--secondary);font-weight:700">Tải CV (PDF)</a></div>
+          <div class="preview">Xem trước CV (PDF) tại đây</div>
+        </section>
+        <section class="card ">
+          <h2 class="card__title">Thư giới thiệu</h2>
+          <p class="quote">Nội dung thư giới thiệu của ứng viên hiển thị tại đây.</p>
+        </section>
+        <div class="sticky-bar"><a class="btn btn--danger" href="#"><span class="ms">close</span>Từ chối</a><a
+            class="btn btn--primary" href="#"><span class="ms">check_circle</span>Đánh dấu Phù hợp</a></div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer__inner"><span>© 2026 JobStudent – Minh bạch &amp; An toàn</span><span>Không đóng cọc • Không giữ
+        CCCD gốc • Hotline 1900 6868</span></div>
+  </footer>
+  <!-- DEMO NAVIGATOR -->
+  <details class="demo-bar">
+    <summary><span class="ms">explore</span>Demo</summary>
+    <div class="demo-bar__content">
+      <div class="demo-bar__group">
+        <h4>Khách</h4>
+        <a href="../index.html">Trang chủ & Tìm việc</a>
+        <a href="../job-detail.html">Chi tiết việc & Ứng tuyển</a>
+        <a href="../login.html">Đăng nhập</a>
+        <a href="../register.html">Đăng ký tài khoản</a>
+      </div>
+      <div class="demo-bar__group">
+        <h4>Sinh viên</h4>
+        <a href="../student/profile.html">Hồ sơ cá nhân</a>
+        <a href="../student/applications.html">Theo dõi ứng tuyển</a>
+        <a href="../student/saved-jobs.html">Việc làm đã lưu</a>
+      </div>
+      <div class="demo-bar__group">
+        <h4>Nhà tuyển dụng</h4>
+        <a href="../employer/dashboard.html">Bảng điều khiển</a>
+        <a href="../employer/job-create.html">Đăng tin tuyển dụng</a>
+        <a href="../employer/applicants.html">Quản lý ứng viên</a>
+      </div>
+      <div class="demo-bar__group">
+        <h4>Admin</h4>
+        <a href="../admin/employers-review.html">Duyệt NTD</a>
+        <a href="../admin/jobs-review.html">Duyệt tin đăng</a>
+        <a href="../admin/reports.html">Xử lý báo cáo xấu</a>
+        <a href="../admin/categories.html">Quản lý danh mục</a>
+      </div>
+    </div>
+  </details>
+</body>
+
+</html>

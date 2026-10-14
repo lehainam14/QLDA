@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Duyệt tin tuyển dụng – JobStudent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages/admin.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a class="brand" href="../index.html"><img src="../assets/img/logo.svg" alt="JobStudent" width="32"
+          height="32">JobStudent</a>
+      <nav class="nav" aria-label="Menu chính">
+        <a href="../admin/employers-review.html">Duyệt NTD</a>
+        <a href="../admin/jobs-review.html" aria-current="page">Duyệt tin</a>
+        <a href="../admin/reports.html">Báo cáo</a>
+        <a href="../admin/categories.html">Danh mục</a>
+      </nav>
+      <div class="header__actions">
+        <span class="chip"><span class="ms">person</span>Quản trị viên</span>
+        <a class="btn btn--outline btn--sm" href="../login.html">Đăng xuất</a>
+      </div>
+    </div>
+  </header>
+  <main class="page">
+    <h1 class="page-title">Duyệt tin tuyển dụng</h1>
+    <section class="card ">
+      <h2 class="card__title">Tin chờ duyệt</h2>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Tiêu đề</th>
+              <th>Công ty</th>
+              <th>Gửi lúc</th>
+              <th>Trạng thái</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Phục vụ Ca tối</td>
+              <td>Highlands Coffee</td>
+              <td>2 giờ trước</td>
+              <td><span class="badge badge--warn">Chờ duyệt</span></td>
+              <td><a class="btn btn--primary" href="#">Duyệt</a><a class="btn btn--danger" href="#">Từ chối</a></td>
+            </tr>
+            <tr>
+              <td>Nhân viên kho</td>
+              <td>Shopee Express</td>
+              <td>5 giờ trước</td>
+              <td><span class="badge badge--warn">Chờ duyệt</span></td>
+              <td><a class="btn btn--primary" href="#">Duyệt</a><a class="btn btn--danger" href="#">Từ chối</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="field" style="margin-top:16px"><label>Lý do từ chối (bắt buộc khi từ chối)</label><textarea
+          class="input" rows="3" name="reject_reason"></textarea></div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer__inner"><span>© 2026 JobStudent – Minh bạch &amp; An toàn</span><span>Không đóng cọc • Không giữ
+        CCCD gốc • Hotline 1900 6868</span></div>
+  </footer>
+  <!-- DEMO NAVIGATOR -->
+  <details class="demo-bar">
+    <summary><span class="ms">explore</span>Demo</summary>
+    <div class="demo-bar__content">
+      <div class="demo-bar__group">
+        <h4>Khách</h4>
+        <a href="../index.html">Trang chủ & Tìm việc</a>
+        <a href="../job-detail.html">Chi tiết việc & Ứng tuyển</a>
+        <a href="../login.html">Đăng nhập</a>
+        <a href="../register.html">Đăng ký tài khoản</a>
+      </div>
+      <div class="demo-bar__group">
+        <h4>Sinh viên</h4>
+        <a href="../student/profile.html">Hồ sơ cá nhân</a>
+        <a href="../student/applications.html">Theo dõi ứng tuyển</a>
+        <a href="../student/saved-jobs.html">Việc làm đã lưu</a>
+      </div>
+      <div class="demo-bar__group">
+        <h4>Nhà tuyển dụng</h4>
+        <a href="../employer/dashboard.html">Bảng điều khiển</a>
+        <a href="../employer/job-create.html">Đăng tin tuyển dụng</a>
+        <a href="../employer/applicants.html">Quản lý ứng viên</a>
+      </div>
+      <div class="demo-bar__group">
+        <h4>Admin</h4>
+        <a href="../admin/employers-review.html">Duyệt NTD</a>
+        <a href="../admin/jobs-review.html">Duyệt tin đăng</a>
+        <a href="../admin/reports.html">Xử lý báo cáo xấu</a>
+        <a href="../admin/categories.html">Quản lý danh mục</a>
+      </div>
+    </div>
+  </details>
+</body>
+
+</html>

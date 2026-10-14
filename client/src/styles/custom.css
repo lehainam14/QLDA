@@ -1,0 +1,133 @@
+/* Additional helper classes */
+.field-error {
+  color: var(--danger);
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 4px;
+  font-weight: 600;
+  display: block;
+}
+
+.input--error {
+  border-color: var(--danger) !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15) !important;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed !important;
+  pointer-events: none;
+  transform: none !important;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  background: #fff;
+  border: 1px dashed var(--line);
+  border-radius: var(--r-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.empty-state .ms {
+  font-size: 48px;
+  color: var(--soft);
+}
+
+.empty-state h3 {
+  font: 700 18px/24px var(--font);
+  color: var(--ink);
+}
+
+.empty-state p {
+  color: var(--muted);
+  max-width: 400px;
+  margin-bottom: 8px;
+}
+
+/* React controlled modal */
+.modal.is-active {
+  display: flex;
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.pagination__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--line);
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.pagination__btn:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.pagination__btn.is-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.pagination__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Alert notifications */
+.alert-banner {
+  padding: 12px 16px;
+  border-radius: var(--r-xl);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.alert-banner--ok {
+  background: var(--ok-bg);
+  border: 1px solid var(--ok-line);
+  color: var(--ok);
+}
+
+.alert-banner--warn {
+  background: var(--warn-bg);
+  border: 1px solid var(--warn-line);
+  color: #92400e;
+}
+
+.alert-banner--danger {
+  background: var(--danger-bg);
+  border: 1px solid #fecaca;
+  color: var(--danger);
+}
+
+/* Responsive applicant list */
+@media (max-width: 768px) {
+  .table-wrap {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

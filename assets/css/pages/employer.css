@@ -1,0 +1,53 @@
+.applicant {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border-radius: var(--r-xl);
+    border: 1px solid var(--line);
+    background: #fff;
+    margin-bottom: 8px
+}
+
+.applicant.is-active {
+    border-color: var(--primary);
+    background: rgba(13, 148, 136, .05)
+}
+
+.applicant b {
+    display: block
+}
+
+.applicant small {
+    color: var(--muted)
+}
+
+.applicant .badge {
+    margin-left: auto
+}
+
+.preview {
+    height: 360px;
+    border-radius: var(--r-xl);
+    background: #E2E8F0;
+    display: grid;
+    place-items: center;
+    color: var(--muted)
+}
+
+.quote {
+    padding: 16px;
+    background: var(--bg);
+    border-radius: var(--r-xl);
+    color: #334155;
+    line-height: 22px
+}
+
+.detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    color: var(--muted);
+    font-size: 13px;
+    margin: 8px 0 16px
+}
